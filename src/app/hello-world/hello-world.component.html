@@ -1,0 +1,12 @@
+<div class="container mt-4" style="margin: 0 auto">
+  <div class="input">
+    <mat-form-field class="input_search">
+      <input matInput #search (keyup.enter)="onEnter(search)"  placeholder="Search Giphy">
+    </mat-form-field>
+  </div>
+  <div style="justify-content: center" class="d-flex flex-wrap">
+    <div  *ngFor="let giphs of listOfGiphs">
+      <img class="xyz" [src]="giphs" style="height: 150px;">
+    </div>
+  </div>
+</div>
