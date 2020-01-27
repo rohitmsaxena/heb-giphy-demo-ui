@@ -1,0 +1,25 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">HEB Giphy Demo</a>
+    <div class="navbar-nav navbar-collapse justify-content-end">
+      <button *ngIf="!user" mat-raised-button (click)="handleLogin($event)">Login</button>
+      <button *ngIf="user" mat-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" (mouseenter)="menuTrigger.openMenu()" >
+        <img style="width: 38px" [src]=user.photoURL (click)="handleAccount($event)">
+      </button>
+    </div>
+  </nav>
+</header>
+
+<mat-menu #menu="matMenu" [overlapTrigger]="false">
+<span (mouseleave)="menuTrigger.closeMenu()">
+  <button mat-menu-item>
+    <mat-icon>favorite</mat-icon>
+    <span>Favorites</span>
+  </button>
+  <button (click)="handleAccount($event)" mat-menu-item>
+   <mat-icon>exit_to_app</mat-icon>
+   <span>Logout</span>
+ </button>
+</span>
+</mat-menu>
+

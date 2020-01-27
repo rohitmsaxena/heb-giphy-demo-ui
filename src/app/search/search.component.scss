@@ -1,0 +1,114 @@
+//.xyz{
+//  flex-wrap: wrap;
+//}
+
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:700');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: #252525;
+}
+
+.input{
+  text-align: center;
+  padding-bottom: 18px;
+  .input_search{
+    width: 80%;
+    border-radius: 18px;
+    padding: 20px;
+    height: 15px;
+  }
+}
+
+.container-image {
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.image {
+  display: block;
+  //width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 25%;
+  left: 100%;
+  right: 0;
+  //background-color: blue;
+  //opacity: 75%;
+  overflow: hidden;
+  width: 0;
+  height: 18%;
+  transition: .5s ease;
+}
+
+.container-image:hover .overlay {
+  width: 15%;
+  left: 85%;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+//.image-container {
+//  flex-wrap: wrap;
+//}
+//
+//.image {
+//  //display: block;
+//  //width: 100%;
+//  //height: auto;
+//}
+//.overlay {
+//  position: relative;
+//  bottom: 0;
+//  left: 100%;
+//  right: 0;
+//  background-color: #008CBA;
+//  overflow: hidden;
+//  width: 0;
+//  height: 20%;
+//  transition: .5s ease;
+//}
+//
+//.image-container:hover .overlay{
+//  width: 30%;
+//  left: 0;
+//}
+//
+//.text {
+//  color: white;
+//  font-size: 20px;
+//  position: absolute;
+//  top: 50%;
+//  left: 50%;
+//  -webkit-transform: translate(-50%, -50%);
+//  -ms-transform: translate(-50%, -50%);
+//  transform: translate(-50%, -50%);
+//  white-space: nowrap;
+//}
+
+
+
+

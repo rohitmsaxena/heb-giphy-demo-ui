@@ -1,14 +1,31 @@
-<div *ngIf="auth.user | async; then authenticated else guest">
-  <!-- template will replace this div -->
+<div>
+  <h3 class="text-center">Howdy, Partner!</h3>
+  <p class="text-center">Select a login method.</p>
+
+  <button mat-stroked-button class="text-center" (click)="auth.emailLogin()">
+    <i class="fa fa-google"></i> Connect by Email
+  </button>
+
+  <button mat-stroked-button class="text-center" (click)="auth.googleLogin()">
+    <i class="fa fa-google"></i> Connect by Google
+  </button>
 </div>
+
+<!--<div *ngIf="auth.user | async; then authenticated else guest">-->
+<!--  &lt;!&ndash; template will replace this div &ndash;&gt;-->
+<!--</div>-->
 
 <!-- User NOT logged in -->
 <ng-template #guest>
-  <h3>Howdy, GUEST</h3>
-  <p>Login to get started...</p>
+  <h3 class="text-center">Howdy, Partner!</h3>
+  <p class="text-center">Select a login method.</p>
 
-  <button (click)="auth.googleLogin()">
-    <i class="fa fa-google"></i> Connect Google
+  <button mat-stroked-button class="text-center" (click)="auth.emailLogin()">
+    <i class="fa fa-google"></i> Connect by Email
+  </button>
+
+  <button mat-stroked-button class="text-center" (click)="auth.googleLogin()">
+    <i class="fa fa-google"></i> Connect by Google
   </button>
 
 </ng-template>
@@ -20,7 +37,6 @@
     <h3>Howdy, {{ user.displayName }}</h3>
     <img  [src]="user.photoURL">
     <p>UID: {{ user.uid }}</p>
-    <p>Favorite Color: {{ user?.favoriteColor }} </p>
     <button (click)="auth.signOut()">Logout</button>
   </div>
 </ng-template>

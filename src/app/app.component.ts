@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'frontend-spring-boot-angular-hello-world-example';
+  title = 'frontend-spring-boot-angular-search-example';
 }

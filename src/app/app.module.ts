@@ -2,10 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HelloWorldComponent } from './hello-world/hello-world.component';
+import { SearchComponent } from './search/search.component';
 import { MenuComponent } from './menu/menu.component';
-import {HttpClientModule} from "@angular/common/http";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from "@angular/material/card";
 import {MatGridListModule} from "@angular/material/grid-list";
@@ -17,20 +17,22 @@ import {environment} from "../environments/environment";
 import {CoreModule} from "./core/core.module";
 import {AuthGuard} from "./core/auth.guard";
 import { TestingComponent } from './testing/testing.component';
+import {MatButtonModule, MatDialogModule, MatIconModule} from '@angular/material';
+import {HeaderModule} from './header/header.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HelloWorldComponent,
+    SearchComponent,
     MenuComponent,
-    HelloWorldComponent,
+    SearchComponent,
     UserLoginComponent,
     UserProfileComponent,
     TestingComponent
   ],
   imports: [
-    BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
+    BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -39,7 +41,11 @@ import { TestingComponent } from './testing/testing.component';
     MatCardModule,
     MatGridListModule,
     MatInputModule,
-    CoreModule
+    CoreModule,
+    MatDialogModule,
+    HeaderModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
