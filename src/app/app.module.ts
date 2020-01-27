@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatInputModule} from '@angular/material/input';
-import { UserProfileComponent } from './users/user-profile/user-profile.component';
+import { LoginComponent } from './login/login.component';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {CoreModule} from './core/core.module';
@@ -22,7 +22,7 @@ import {HeaderModule} from './header/header.module';
     AppComponent,
     SearchComponent,
     SearchComponent,
-    UserProfileComponent
+    LoginComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

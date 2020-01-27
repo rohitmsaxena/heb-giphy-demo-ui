@@ -1,9 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {UserProfileComponent} from '../users/user-profile/user-profile.component';
+import {LoginComponent} from '../login/login.component';
 import {MatDialog} from '@angular/material';
 import {AuthService} from '../core/auth.service';
 import {User} from 'firebase';
-import {HeaderService} from './header.service';
 
 @Component({
   selector: 'app-header',
@@ -21,23 +20,17 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.auth.user.subscribe(x => {
-      console.log(x);
       this.user = x;
     });
   }
 
   handleLogin(event): void {
     console.log(event);
-    const dialogRef = this.dialog.open(UserProfileComponent, {
+    const dialogRef = this.dialog.open(LoginComponent, {
       width: '250px',
-      // data: {name: this.name, animal: this.animal}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      // this.animal = result;
     });
   }
+
   handleAccount($event: MouseEvent) {
     this.auth.signOut();
   }

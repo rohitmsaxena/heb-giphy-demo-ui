@@ -6,8 +6,6 @@ import {Giphy} from '../interfaces/giphy';
 import {Observable} from 'rxjs';
 import {GiphySearch} from '../interfaces/giphySearch.interface';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -30,8 +28,6 @@ export class GiphyService {
 
   save(giphs: any): Observable<Giphy> {
     const params: HttpParams = this.authorizedParams().set('giphyId', giphs);
-    console.log(params);
-    console.log(`${properties.serverUrl}/save`);
     return  this.http.get<any>(`${properties.serverUrl}/save`, {params});
   }
 

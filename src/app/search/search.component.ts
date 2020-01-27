@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {GiphyService} from '../services/giphy.service';
 import {Giphy} from '../interfaces/giphy';
 import {GiphySearch} from '../interfaces/giphySearch.interface';
-import {HeaderService} from '../header/header.service';
 import {AuthService} from '../core/auth.service';
 
 @Component({
@@ -10,16 +9,11 @@ import {AuthService} from '../core/auth.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent  {
   listOfGiphs: Giphy[];
 
   constructor(private authService: AuthService,
-              private giphyService: GiphyService,
-              private headerService: HeaderService) { }
-
-  ngOnInit() {
-    this.headerService.getViewFavorite().subscribe(x => console.log(x));
-  }
+              private giphyService: GiphyService) { }
 
   onEnter(search: HTMLInputElement) {
     this.giphyService.search(search.value, 50, 0)

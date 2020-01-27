@@ -12,7 +12,7 @@
       <div class="container-image">
         <img class="image" [src]="giphs.images.downsized_large.url" style="height: 150px;">
         <div class="overlay">
-          <mat-icon (click)="save(giphs)" style="color: black" aria-hidden="false" aria-label="favorite">favorite</mat-icon>
+          <mat-icon *ngIf="authService.user | async" (click)="save(giphs)" style="color: black" aria-hidden="false" aria-label="favorite">favorite</mat-icon>
         </div>
       </div>
     </div>
