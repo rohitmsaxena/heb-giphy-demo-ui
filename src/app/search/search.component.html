@@ -8,13 +8,17 @@
     </button>
   </div>
   <div style="justify-content: center" class="d-flex flex-wrap">
-    <div  *ngFor="let giphs of listOfGiphs">
+    <div  *ngFor="let giph of listOfGiphs; let i = index;">
       <div class="container-image">
-        <img class="image" [src]="giphs.images.downsized_large.url" style="height: 150px;">
-        <div class="overlay">
-          <mat-icon *ngIf="authService.user | async" (click)="save(giphs)" style="color: black" aria-hidden="false" aria-label="favorite">favorite</mat-icon>
+        <img class="image" [src]="giph.images.downsized_large.url" style="height: 150px;" alt="image">
+        <div *ngIf="(authService.user | async) && ifNormalSearch()" class="overlay">
+          <mat-icon (click)="save(giph)" style="color: white" aria-hidden="false" aria-label="add">add</mat-icon>
+        </div>
+        <div *ngIf="(authService.user | async) && !ifNormalSearch()" class="overlay-red">
+          <mat-icon *ngIf="!ifNormalSearch()" (click)="remove(i, giph)" style="color: white" aria-hidden="false" aria-label="remove">remove</mat-icon>
         </div>
       </div>
     </div>
+    <button mat-stroked-button class="max-width" *ngIf="searchText.length > 0" (click)="searchMore()">Search More</button>
   </div>
 </div>

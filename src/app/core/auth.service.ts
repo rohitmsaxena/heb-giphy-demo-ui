@@ -39,9 +39,20 @@ export class AuthService {
     return this.oAuthLogin(provider);
   }
 
-  emailLogin() {
-    const provider = new auth.EmailAuthProvider();
-    return this.oAuthLogin(provider);
+  emailSignup(email: string, password: string) {
+    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+      .then((credential) => {
+        console.log(credential.user);
+        this.updateUserData(credential.user);
+      })
+  }
+
+  emailLogin(email: string, password: string) {
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+      .then((credential) => {
+        console.log(credential.user);
+        this.updateUserData(credential.user);
+      });
   }
 
   private oAuthLogin(provider) {

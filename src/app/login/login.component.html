@@ -1,12 +1,37 @@
 <div>
   <h3 class="text-center">Howdy, Partner!</h3>
-  <p class="text-center">Select a login method.</p>
+  <p class="text-center">Sign up with email or social login!</p>
+  <div>
+    <form [formGroup]="emailFormGroup">
+      <mat-form-field appearance="outline" class="stretch">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          aria-label="Email"
+          maxlength="50"
+          formControlName="email"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="stretch">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          aria-label="Password"
+          maxlength="50"
+          formControlName="password"
+        />
+      </mat-form-field>
+      <p *ngIf="errorMessage.length > 0" class="error">{{errorMessage}}</p>
+      <button mat-button type="submit" (click)="register()">Register</button>
+      <button mat-button type="submit" (click)="login()">Login</button>
+    </form>
+  </div>
 
-  <button mat-stroked-button class="text-center" (click)="auth.emailLogin()">
-    <i class="fa fa-google"></i> Connect by Email
-  </button>
-
-  <button mat-stroked-button class="text-center" (click)="auth.googleLogin(); closeOnClick();">
+  <div style="vertical-align: center">
+    <button mat-stroked-button class="padding text-center" (click)="auth.googleLogin(); closeOnClick();">
     <i class="fa fa-google"></i> Connect by Google
   </button>
+  </div>
+
 </div>

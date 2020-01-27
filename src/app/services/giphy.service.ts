@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {AuthService} from '../core/auth.service';
 import {properties} from '../../../properties';
 import {Giphy} from '../interfaces/giphy';
@@ -18,7 +18,6 @@ export class GiphyService {
   }
 
   search(searchString: string, limit: number, offset: number): Observable<GiphySearch> {
-    console.log(this.auth.idToken);
     const params: HttpParams = this.authorizedParams()
       .set('query', searchString)
       .set('limit', limit.toString())
@@ -26,13 +25,18 @@ export class GiphyService {
     return this.http.get<GiphySearch>(`${properties.serverUrl}/search`, {params});
   }
 
-  save(giphs: any): Observable<Giphy> {
-    const params: HttpParams = this.authorizedParams().set('giphyId', giphs);
+  save(giphId: string): Observable<Giphy> {
+    const params: HttpParams = this.authorizedParams().set('giphyId', giphId);
     return  this.http.get<any>(`${properties.serverUrl}/save`, {params});
   }
 
   queryFavorites(): Observable<GiphySearch> {
     return this.http.get<GiphySearch>(`${properties.serverUrl}/getAll`,
       { params: this.authorizedParams() });
+  }
+
+  remove(giphId: string) {
+    const params: HttpParams = this.authorizedParams().set('giphyId', giphId);
+    return  this.http.get<any>(`${properties.serverUrl}/remove`, {params});
   }
 }

@@ -4,12 +4,12 @@
     <div class="navbar-nav navbar-collapse justify-content-end">
       <button *ngIf="!user" mat-raised-button (click)="handleLogin($event)">Login</button>
       <button *ngIf="user" mat-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" (mouseenter)="menuTrigger.openMenu()" >
-        <img style="width: 38px" [src]=user.photoURL (click)="handleAccount($event)">
+        <img *ngIf="user.photoURL" style="width: 38px" [src]=user.photoURL (click)="handleAccount($event)">
+        <img *ngIf="!user.photoURL" style="width: 38px" src="http://identicon.net/img/identicon.png" (click)="handleAccount($event)">
       </button>
     </div>
   </nav>
 </header>
-
 <mat-menu #menu="matMenu" [overlapTrigger]="false">
   <span (mouseleave)="menuTrigger.closeMenu()">
     <button (click)="handleAccount($event)" mat-menu-item>
@@ -18,4 +18,3 @@
    </button>
   </span>
 </mat-menu>
-
