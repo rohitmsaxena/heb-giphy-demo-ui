@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend-spring-boot-angular-search-example';
+
+  viewFavorite($event: any) {
+    console.log('view favorite');
+    console.log($event);
+  }
 }

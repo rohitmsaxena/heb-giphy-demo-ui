@@ -6,37 +6,7 @@
     <i class="fa fa-google"></i> Connect by Email
   </button>
 
-  <button mat-stroked-button class="text-center" (click)="auth.googleLogin()">
+  <button mat-stroked-button class="text-center" (click)="auth.googleLogin(); closeOnClick();">
     <i class="fa fa-google"></i> Connect by Google
   </button>
 </div>
-
-<!--<div *ngIf="auth.user | async; then authenticated else guest">-->
-<!--  &lt;!&ndash; template will replace this div &ndash;&gt;-->
-<!--</div>-->
-
-<!-- User NOT logged in -->
-<ng-template #guest>
-  <h3 class="text-center">Howdy, Partner!</h3>
-  <p class="text-center">Select a login method.</p>
-
-  <button mat-stroked-button class="text-center" (click)="auth.emailLogin()">
-    <i class="fa fa-google"></i> Connect by Email
-  </button>
-
-  <button mat-stroked-button class="text-center" (click)="auth.googleLogin()">
-    <i class="fa fa-google"></i> Connect by Google
-  </button>
-
-</ng-template>
-
-
-<!-- User logged in -->
-<ng-template #authenticated>
-  <div *ngIf="auth.user | async as user">
-    <h3>Howdy, {{ user.displayName }}</h3>
-    <img  [src]="user.photoURL">
-    <p>UID: {{ user.uid }}</p>
-    <button (click)="auth.signOut()">Logout</button>
-  </div>
-</ng-template>

@@ -35,8 +35,8 @@ export class GiphyService {
     return  this.http.get<any>(`${properties.serverUrl}/save`, {params});
   }
 
-  queryFavorites(): Observable<Giphy[]> {
-    return this.http.get<Giphy[]>(`${properties.serverUrl}/getAll`,
+  queryFavorites(): Observable<GiphySearch> {
+    return this.http.get<GiphySearch>(`${properties.serverUrl}/getAll`,
       { params: this.authorizedParams() });
   }
 }

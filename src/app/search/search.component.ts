@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {GiphyService} from "../services/giphy.service";
-import * as firebase from "firebase";
+import {GiphyService} from '../services/giphy.service';
 import {Giphy} from '../interfaces/giphy';
 import {GiphySearch} from '../interfaces/giphySearch.interface';
+import {HeaderService} from '../header/header.service';
+import {AuthService} from '../core/auth.service';
 
 @Component({
   selector: 'app-hello-world',
@@ -12,10 +13,12 @@ import {GiphySearch} from '../interfaces/giphySearch.interface';
 export class SearchComponent implements OnInit {
   listOfGiphs: Giphy[];
 
-  constructor(private giphyService: GiphyService) { }
+  constructor(private authService: AuthService,
+              private giphyService: GiphyService,
+              private headerService: HeaderService) { }
 
   ngOnInit() {
-    firebase.auth().currentUser.getIdToken(false).then(r => console.log(r));
+    this.headerService.getViewFavorite().subscribe(x => console.log(x));
   }
 
   onEnter(search: HTMLInputElement) {
@@ -27,13 +30,12 @@ export class SearchComponent implements OnInit {
   }
 
   save(giphs: Giphy) {
-    console.log(giphs.id);
-    this.giphyService.save(giphs.id).subscribe(x => {
-      console.log(x);
-      this.giphyService.queryFavorites().subscribe( y => {
-        console.log(y);
-      });
-    });
+    this.giphyService.save(giphs.id).subscribe(() => {});
+  }
 
+  viewFavorite() {
+    this.giphyService.queryFavorites().subscribe( y => {
+      this.listOfGiphs = y.data
+    });
   }
 }

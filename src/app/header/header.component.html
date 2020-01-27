@@ -11,15 +11,11 @@
 </header>
 
 <mat-menu #menu="matMenu" [overlapTrigger]="false">
-<span (mouseleave)="menuTrigger.closeMenu()">
-  <button mat-menu-item>
-    <mat-icon>favorite</mat-icon>
-    <span>Favorites</span>
-  </button>
-  <button (click)="handleAccount($event)" mat-menu-item>
-   <mat-icon>exit_to_app</mat-icon>
-   <span>Logout</span>
- </button>
-</span>
+  <span (mouseleave)="menuTrigger.closeMenu()">
+    <button (click)="handleAccount($event)" mat-menu-item>
+     <mat-icon>exit_to_app</mat-icon>
+     <span>Logout</span>
+   </button>
+  </span>
 </mat-menu>
 

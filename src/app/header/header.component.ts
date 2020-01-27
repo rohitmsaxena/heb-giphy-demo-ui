@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {UserProfileComponent} from '../users/user-profile/user-profile.component';
-import {ActivatedRoute, Router} from '@angular/router';
 import {MatDialog} from '@angular/material';
 import {AuthService} from '../core/auth.service';
-import {Observable} from 'rxjs';
 import {User} from 'firebase';
+import {HeaderService} from './header.service';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +14,10 @@ export class HeaderComponent implements OnInit {
 
   user: User;
 
-  constructor(public auth: AuthService, public dialog: MatDialog) { }
+  @Output() viewFavorite = new EventEmitter();
+
+  constructor(public auth: AuthService,
+              public dialog: MatDialog) { }
 
   ngOnInit() {
     this.auth.user.subscribe(x => {

@@ -3,20 +3,17 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
-import { MenuComponent } from './menu/menu.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule} from "@angular/material/card";
-import {MatGridListModule} from "@angular/material/grid-list";
-import {MatInputModule} from "@angular/material/input";
-import { UserLoginComponent } from './users/user-login/user-login.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatInputModule} from '@angular/material/input';
 import { UserProfileComponent } from './users/user-profile/user-profile.component';
-import {AngularFireModule} from "@angular/fire";
-import {environment} from "../environments/environment";
-import {CoreModule} from "./core/core.module";
-import {AuthGuard} from "./core/auth.guard";
-import { TestingComponent } from './testing/testing.component';
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../environments/environment';
+import {CoreModule} from './core/core.module';
+import {AuthGuard} from './core/auth.guard';
 import {MatButtonModule, MatDialogModule, MatIconModule} from '@angular/material';
 import {HeaderModule} from './header/header.module';
 
@@ -24,11 +21,8 @@ import {HeaderModule} from './header/header.module';
   declarations: [
     AppComponent,
     SearchComponent,
-    MenuComponent,
     SearchComponent,
-    UserLoginComponent,
-    UserProfileComponent,
-    TestingComponent
+    UserProfileComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
