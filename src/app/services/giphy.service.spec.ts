@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HelloWorldService } from './hello-world.service';
+import { GiphyService } from './giphy.service';
 
-describe('HelloWorldService', () => {
+describe('GiphyService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: HelloWorldService = TestBed.get(HelloWorldService);
+    const service: GiphyService = TestBed.get(GiphyService);
     expect(service).toBeTruthy();
   });
 });

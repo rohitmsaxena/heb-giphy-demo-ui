@@ -1,0 +1,94 @@
+//.xyz{
+//  flex-wrap: wrap;
+//}
+
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:700');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: #252525;
+}
+
+.input{
+  text-align: center;
+  padding-bottom: 18px;
+  .input_search{
+    width: 80%;
+    border-radius: 18px;
+    padding: 20px;
+    height: 15px;
+  }
+}
+
+.container-image {
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.image {
+  display: block;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 25%;
+  left: 100%;
+  right: 0;
+  background-color: blue;
+  //opacity: 75%;
+  overflow: hidden;
+  width: 0;
+  height: 18%;
+  transition: .5s ease;
+}
+
+.overlay-red {
+  position: absolute;
+  bottom: 25%;
+  left: 100%;
+  right: 0;
+  background-color: red;
+  overflow: hidden;
+  width: 0;
+  height: 18%;
+  transition: .5s ease;
+}
+
+.container-image:hover .overlay-red {
+  width: 25px;
+  left: calc(100% - 25px);
+}
+
+.container-image:hover .overlay {
+  width: 25px;
+  left: calc(100% - 25px);
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+.max-width {
+  width: 100%;
+  margin-top: 10px;
+}
+
